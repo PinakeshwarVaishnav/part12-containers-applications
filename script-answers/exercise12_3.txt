@@ -1,0 +1,11 @@
+# step 1: run the docker container
+docker start -i elated_lalande
+
+# step 2: open the file index.js
+vi /usr/src/app/index.js
+
+# step 3: make the changes in the file index.js
+console.log('Hello World')
+
+# step 4: exit the container
+exit
