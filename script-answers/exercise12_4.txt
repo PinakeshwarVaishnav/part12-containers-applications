@@ -1,0 +1,15 @@
+# step 1: run the docker container
+docker start -i elated_lalande
+
+# step 2: install curl
+apt install curl
+
+# step 3: run the command to install node
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+apt install -y nodejs
+
+# step 4: run the file index.js
+node /usr/src/app/index.js
+
+# step 5: exit the container
+exit
