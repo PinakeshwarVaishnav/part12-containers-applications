@@ -5,7 +5,7 @@ const router = express.Router();
 /* GET todos listing. */
 router.get("/", async (_, res) => {
   const todos = await Todo.find({});
-  res.send(todos);
+  res.json(todos);
 });
 
 /* POST todo to listing. */
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
     text: req.body.text,
     done: false,
   });
-  res.send(todo);
+  res.json(todo);
 });
 
 const singleRouter = express.Router();
@@ -37,7 +37,7 @@ singleRouter.delete("/", async (req, res) => {
 singleRouter.get("/:id", async (req, res) => {
   const todoId = req.params.id;
   const todo = await Todo.findOne({ _id: todoId });
-  res.send(todo);
+  res.json(todo);
 });
 
 /* PUT todo. */
@@ -50,7 +50,7 @@ singleRouter.put("/:id", async (req, res) => {
     { returnDocument: "after" },
   );
 
-  res.send(result);
+  res.json(result);
 });
 
 router.use("/:id", findByIdMiddleware, singleRouter);

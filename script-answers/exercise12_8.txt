@@ -1,0 +1,8 @@
+Step 1: Run MongoDB
+docker compose -f docker-compose.dev.yml up
+
+Step 2: Use docker exec to get inside the container and Open Mongo CLI
+docker exec -it todo-backend-mongo-1 mongosh -u the_username -p the_password the_database
+
+Step 3: Add todo
+db.todos.insert({ text: 'Increase the number of tools in my tool belt', done: false });
